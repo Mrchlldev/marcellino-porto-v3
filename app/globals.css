@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #171717;
+  --paper: #fff7df;
+  --cream: #ffeeb8;
+  --pink: #ff7ab6;
+  --blue: #73d2ff;
+  --green: #b8f26d;
+  --orange: #ffb84d;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,122,182,.28), transparent 26%),
+    radial-gradient(circle at 80% 10%, rgba(115,210,255,.28), transparent 28%),
+    linear-gradient(135deg, #fff7df 0%, #ffeeb8 100%);
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.retro-grid {
+  background-image: linear-gradient(rgba(23,23,23,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(23,23,23,.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.retro-card {
+  border: 3px solid var(--ink);
+  background: rgba(255, 247, 223, .92);
+  box-shadow: 8px 8px 0 var(--ink);
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+}
+.retro-card:hover {
+  transform: translate(-4px, -4px) rotate(-.4deg);
+  box-shadow: 12px 12px 0 var(--ink);
+}
+
+.retro-button {
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.retro-button:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+[data-aos="blur-up"] {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0) scale(.98);
+  filter: blur(14px);
+  transition-property: opacity, transform, filter;
+}
+[data-aos="blur-up"].aos-animate {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+
+.marquee { overflow: hidden; white-space: nowrap; }
+.marquee span { display: inline-block; animation: marquee 18s linear infinite; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
